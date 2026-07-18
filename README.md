@@ -1,185 +1,102 @@
-Active Directory Home Lab
-Phase 1: Building an Active Directory Domain Controller
-Project Objective
+📸 1. Server Manager
+## Server Manager
 
-The objective of this phase was to build a Windows Server 2022 Active Directory environment from scratch to develop hands-on experience with enterprise identity management, Windows Server administration, and PowerShell automation.
+![Server Manager](images/server-manager.png)
 
-Lab Environment
-Component	Configuration
-Hypervisor	Oracle VirtualBox
-Operating System	Windows Server 2022 Standard Evaluation (Desktop Experience)
-Server Name	DC01
-Domain	theory.lab
-Server Roles	Active Directory Domain Services (AD DS), DNS
-IP Address	192.168.10.10
-Tasks Completed
-Installed Windows Server 2022
-Configured a static IPv4 address
-Configured DNS
-Renamed the server to DC01
-Installed the Active Directory Domain Services role
-Promoted the server to a Domain Controller
-Created the theory.lab Active Directory domain
-Creating Organizational Units
+**Summary:** Windows Server 2022 configured with the Active Directory Domain Services (AD DS) and DNS server roles.
 
-To organize departmental resources, I created separate Organizational Units (OUs) for:
+**Skills Demonstrated:**
+- Windows Server Administration
+- Active Directory Installation
+- DNS Configuration
+📸 2. Organizational Units
+## Organizational Units
 
-IT
-HR
-Finance
-Medical
-Social Services
+![Organizational Units](images/organizational-units.png)
 
-Initially, I created one OU manually to understand the process before automating the remaining OUs with PowerShell.
+**Summary:** Created departmental Organizational Units (IT, HR, Finance, Medical, and Social Services) to organize Active Directory resources.
 
-PowerShell Used
-Import-Module ActiveDirectory
+**Skills Demonstrated:**
+- Active Directory Administration
+- Organizational Unit Design
+📸 3. PowerShell Automation
+## PowerShell Automation
 
-$OUs = @(
-    "HR",
-    "Finance",
-    "Medical",
-    "Social Services"
-)
+![PowerShell OU Creation](images/powershell-ou-creation.png)
 
-foreach ($OU in $OUs) {
-    New-ADOrganizationalUnit -Name $OU -Path "DC=theory,DC=lab"
-}
-Skills Demonstrated
-Windows Server Administration
-Active Directory Domain Services
-DNS Configuration
-Organizational Unit Design
-PowerShell Automation
-PowerShell Arrays
-foreach Loops
-Challenges Encountered
+**Summary:** Automated Organizational Unit creation using PowerShell arrays and a foreach loop.
 
-During this phase I encountered several common PowerShell issues including:
+**Skills Demonstrated:**
+- PowerShell
+- Automation
+- Scripting
+📸 4. Employee CSV
+## Employee CSV
 
-Typographical errors
-Variable naming mistakes
-Multi-line PowerShell prompts (>>)
-Script execution troubleshooting
+![Employee CSV](images/employee-csv.png)
 
-Resolving these issues improved my understanding of PowerShell syntax and debugging techniques.
+**Summary:** Created a CSV file containing employee information to simulate enterprise user onboarding.
 
-Evidence
+**Skills Demonstrated:**
+- CSV Management
+- User Provisioning
+📸 5. User Provisioning Test
+## PowerShell -WhatIf Validation
 
-📸 Windows Server 2022
+![WhatIf](images/whatif-user-creation.png)
 
-📸 Server Manager
+**Summary:** Validated the PowerShell user provisioning script using the `-WhatIf` parameter before creating Active Directory accounts.
 
-📸 Active Directory Users and Computers
+**Skills Demonstrated:**
+- PowerShell
+- Testing
+- Change Validation
+📸 6. Active Directory Users
+## Active Directory Users
 
-📸 PowerShell creating Organizational Units
+![Users](images/ad-users.png)
 
-Reflection
+**Summary:** Successfully created Active Directory user accounts from imported CSV data.
 
-Building an Active Directory domain from scratch helped me understand how Windows Server, DNS, and Active Directory work together. Automating Organizational Unit creation with PowerShell reinforced the value of scripting repetitive administrative tasks and highlighted the importance of testing and troubleshooting during system administration.
+**Skills Demonstrated:**
+- Active Directory User Management
+- PowerShell Automation
+📸 7. Security Groups
+## Security Groups
 
-Phase 2: User Provisioning and Security Group Administration
-Project Objective
+![Security Groups](images/security-groups.png)
 
-The objective of this phase was to simulate an enterprise onboarding process by automating user account creation, organizing users into departmental Organizational Units, and implementing Role-Based Access Control (RBAC) through Active Directory Security Groups.
+**Summary:** Created departmental Global Security Groups to implement Role-Based Access Control (RBAC).
 
-Tasks Completed
-Created an employee CSV file
-Imported user data into PowerShell
-Simulated user creation using -WhatIf
-Created Active Directory users
-Verified user creation
-Created Global Security Groups
-Added users to department security groups
-Verified group memberships
-Employee CSV
+**Skills Demonstrated:**
+- RBAC
+- Security Groups
+- Identity and Access Management
+📸 8. Adding Users to Groups
+## Group Membership Assignment
 
-The employee data was stored in a CSV file to simulate a Human Resources onboarding process.
+![Add Group Members](images/add-group-members.png)
 
-FirstName,LastName,Username,Department
-Jamie,Carter,jcarter,IT
-Sam,Patel,Spatel,HR
-Alex,Cross,Across,Finance
-John,Doverman,Jdoverman,Medical
-Perry,Gray,Pgray,Social Services
-Dave,Smitherman,Dsmitherman,IT
-PowerShell User Provisioning
+**Summary:** Assigned users to their departmental Security Groups using PowerShell.
 
-Users were created using:
+**Skills Demonstrated:**
+- PowerShell
+- Group Administration
+📸 9. Verification
+## Group Membership Verification
 
-Import-Csv
-foreach loops
-New-ADUser
-SecureString passwords
+![Verification](images/group-membership-verification.png)
 
-The initial execution used PowerShell's -WhatIf parameter to safely validate the automation before creating production objects.
+**Summary:** Verified that each user was successfully assigned to the correct Active Directory Security Group.
 
-Security Groups Created
-Department	Security Group
-IT	IT-Security
-HR	HR-Security
-Finance	Finance-Security
-Medical	Medical-Security
-Social Services	Social Services-Security
-User Memberships
-User	Group
-Jamie Carter	IT-Security
-Dave Smitherman	IT-Security
-Sam Patel	HR-Security
-Alex Cross	Finance-Security
-John Doverman	Medical-Security
-Perry Gray	Social Services-Security
-PowerShell Commands Used
-Import-Csv
+**Skills Demonstrated:**
+- Verification
+- Troubleshooting
+- Active Directory Administration
+⭐ End of README
 
-New-ADUser
+Finish your README with a short conclusion:
 
-Add-ADGroupMember
+## Project Summary
 
-Get-ADGroupMember
-Skills Demonstrated
-Active Directory User Administration
-CSV Data Management
-PowerShell Automation
-Identity and Access Management (IAM)
-Role-Based Access Control (RBAC)
-Active Directory Security Groups
-User Verification
-Troubleshooting
-Challenges Encountered
-
-During this phase I learned several important administrative concepts:
-
-Using -WhatIf before making production changes
-Understanding duplicate account errors
-Correcting incorrect usernames during group assignment
-Verifying user creation before assigning permissions
-Validating group memberships after configuration
-Evidence
-
-📸 Employee CSV
-
-📸 PowerShell -WhatIf output
-
-📸 User creation
-
-📸 Active Directory Users and Computers showing users
-
-📸 Security Groups
-
-📸 Add-ADGroupMember commands
-
-📸 Get-ADGroupMember verification
-
-Reflection
-
-This phase demonstrated how enterprise administrators automate user provisioning while implementing Role-Based Access Control through Active Directory Security Groups. Rather than assigning permissions directly to users, security groups provide a scalable and maintainable method for managing access to organizational resources. The project also reinforced the importance of validating automation, verifying configurations, and troubleshooting issues before deploying changes.
-
-Technologies Used
-Windows Server 2022
-Active Directory Domain Services (AD DS)
-DNS
-PowerShell
-Oracle VirtualBox
-CSV
-Active Directory Users and Computers (ADUC)
+This project demonstrates the deployment and administration of a Windows Ser
