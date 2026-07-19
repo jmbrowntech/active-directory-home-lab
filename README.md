@@ -85,7 +85,7 @@
 📸 9. Verification
 ## Group Membership Verification
 
-![Verification](images/group-membership-verification.png)
+![Verification](images/verify-group-membership.png)
 
 **Summary:** Verified that each user was successfully assigned to the correct Active Directory Security Group.
 
